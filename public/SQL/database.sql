@@ -23,3 +23,12 @@ INSERT INTO products(product_title, product_category_id, product_price, product_
 INSERT INTO products(product_title, product_category_id, product_price, product_description, product_image) VALUES ("product 3", "3", 14.99, "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.", "http://placehold.it/320x150");
 
 INSERT INTO products(product_title, product_category_id, product_price, product_description, product_image) VALUES ("product 4", "4", 17.99, "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.", "http://placehold.it/320x150");
+
+CREATE TABLE users(
+    user_id INT IDENTITY PRIMARY KEY,
+    username VARCHAR(30),
+    email VARCHAR(50),
+    password VARCHAR(50)
+)
+
+INSERT INTO users(username, email) VALUES ("IwanJones412", "iwanjones41299@gmail.com");
