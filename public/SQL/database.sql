@@ -32,3 +32,11 @@ CREATE TABLE users(
 )
 
 INSERT INTO users(username, email) VALUES ("IwanJones412", "iwanjones41299@gmail.com");
+
+CREATE TABLE orders(
+    order_id INT IDENTITY PRIMARY KEY,
+    order_amount FLOAT (30),
+    order_transaction VARCHAR(50),
+    order_status VARCHAR(50),
+    order_currency VARCHAR(50)
+)

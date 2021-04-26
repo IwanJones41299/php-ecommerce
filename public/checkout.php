@@ -21,7 +21,11 @@ include(TEMPLATE_FRONTEND . DS . "head.php");
 
       <h1>Checkout</h1>
       <h3 class="text-center bg-danger"><?php display_message(); ?></h3>
-<form action="">
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+  <input type="hidden" name="cmd" value="_cart">
+  <input type="hidden" name="business" value="iwanjones_bus@gmail.com">
+  <input type="hidden" name="currency_code" value="GBP">
+  <input type="hidden" name="upload" value="1">
     <table class="table table-striped">
         <thead>
           <tr>
@@ -36,6 +40,7 @@ include(TEMPLATE_FRONTEND . DS . "head.php");
             <?php cart(); ?>
         </tbody>
     </table>
+    <?php echo display_paypal() ?>
 </form>
 
 

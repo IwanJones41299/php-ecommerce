@@ -39,6 +39,10 @@ function cart(){
 
 $total = 0;
 $item_quantity = 0;
+$item_name = 1;
+$item_number = 1;
+$amount = 1;
+$quantity = 1;
 
 foreach ($_SESSION as $name => $value){
 if($value > 0){
@@ -66,10 +70,20 @@ $product = <<<DELIMETER
         <a class="btn btn-danger" href="cart.php?delete={$row['product_id']}"><span class="glyphicon glyphicon-remove"></span></a>
     </td>
 </tr>
+
+<input type="hidden" name="item_name_{$item_name}" value="{$row['product_title']}">
+<input type="hidden" name="item_number_{$item_number}" value="{$row['product_id']}">
+<input type="hidden" name="amount_{$amount}" value="{$row['product_price']}">
+<input type="hidden" name="quantity_{$quantity}" value="{$value}">
         
 DELIMETER;
         
         echo $product;
+
+        $item_name ++;
+        $item_number ++;
+        $amount ++;
+        $quantity ++;
 
        }
 
@@ -77,6 +91,21 @@ DELIMETER;
         $_SESSION['item_quantity'] = $item_quantity;
     }  
 }
+
+}
+}
+
+function display_paypal(){
+if(isset($_SESSION['item_quantity'])){
+
+    
+$paypal_btn = <<<DELIMETER
+<input type="image" name="upload" 
+src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+alt="PayPal - The safer, easier way to pay online">
+DELIMETER;
+
+return $paypal_btn;
 
 }
 }
