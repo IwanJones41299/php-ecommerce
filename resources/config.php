@@ -1,8 +1,9 @@
-<?php
-
-ob_start();
+<?php ob_start();
 
 session_start();
+
+// use this for debugging purposes
+// session_destroy(); 
 
 //make root file (public) ready for cross platform
 defined("DS") ? null : define("DS", DIRECTORY_SEPARATOR);
