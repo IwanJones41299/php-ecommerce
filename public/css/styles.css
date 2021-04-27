@@ -1,3 +1,7 @@
 .caption{
     min-height: 17vh;
 }
+
+.container{
+    width: 90% !important;
+}

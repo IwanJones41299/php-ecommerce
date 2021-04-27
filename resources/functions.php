@@ -184,6 +184,62 @@ function send_message(){//look into creating a ticket system.
     }
 }
 
+function admin_products(){
+    $query = query("SELECT * FROM products");
+    confirm($query);
+    while($row = fetch_array($query)){
+$all_products = <<<DELIMETER
+<tr>
+    <td>{$row['product_id']}</td>
+    <td>{$row['product_title']}</td>
+    <td>{$row['product_category_id']}</td>
+    <td>&pound{$row['product_price']}</td>
+    <td>{$row['product_quantity']}</td>
+    <td>{$row['product_description']}</td>
+    <td>{$row['short_desc']}</td>
+    <td>{$row['product_image']}</td>
+    <td>
+        <a class="btn btn-warning" href="edit_product.php&id={$row['product_id']}"><span class="glyphicon glyphicon-edit"></span></a>
+        <a class="btn btn-danger" href="{$row['product_id']}"><span class="glyphicon glyphicon-remove"></span></a>
+    </td>
+</tr>
+DELIMETER;
+
+echo $all_products;
+    }
+}
+
+function create_product(){
+    if(isset($_POST['submit'])){
+        $productTitle = escape_string($_POST["product_title"]);
+        $productCategory = escape_string($_POST["product_cateogry_id"]);
+        $productPrice = escape_string($_POST["product_price"]);
+        $productQuantity = escape_string($_POST["product_quantity"]);
+        $productDescription = escape_string($_POST["product_description"]);
+        $shortDesc = escape_string($_POST["short_desc"]);
+        $productImage = escape_string($_POST["product_image"]);
+
+        $query = query("INSERT INTO `products` (product_title, product_category_id, product_price, product_quantity, product_description, short_desc, product_image) VALUES ('{$productTitle}', '{$productCategory}', '{$productPrice}', '{$productQuantity}', '{$productDescription}', '{$shortDesc}', '{$productImage}')");
+        confirm($query);
+    }
+}
+
+function edit_product(){
+    $edit_state = 0;
+    $id = 0;
+
+    if(isset($_POST['update'])){
+        $id = escape_string($_POST['id']);
+        $productTitle = escape_string($_POST["product_title"]);
+        $productCategory = escape_string($_POST["product_cateogry_id"]);
+        $productPrice = escape_string($_POST["product_price"]);
+        $productQuantity = escape_string($_POST["product_quantity"]);
+        $productDescription = escape_string($_POST["product_description"]);
+        $shortDesc = escape_string($_POST["short_desc"]);
+        $productImage = escape_string($_POST["product_image"]);
+    }
+}
+
 
 
 

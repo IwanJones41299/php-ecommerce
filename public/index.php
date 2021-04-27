@@ -1,4 +1,5 @@
-<?php require_once("../resources/config.php"); ?>
+<?php require_once("../resources/config.php"); 
+?>
 
 <?php
 include(TEMPLATE_FRONTEND . DS . "head.php");

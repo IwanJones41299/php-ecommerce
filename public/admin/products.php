@@ -1,3 +1,4 @@
+<?php require_once("../../resources/config.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,55 +97,31 @@
    All Products
 
 </h1>
-<table class="table table-hover">
 
+    <!-- Page Content -->
+    <div class="container">
+    <h1>Admin Area</h1>
 
-    <thead>
-
-      <tr>
-           <th>Id</th>
-           <th>Title</th>
-           <th>Category</th>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Product id</th>
+           <th>Product</th>
+           <th>Cateogry id</th></th>
            <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
+           <th>Quantity</th>
+           <th>Description</th>
+           <th>Short Description</th>
+           <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+        <a class="btn btn-success" href="create.php"><span>New</span></a>
+            <?php admin_products(); ?>
+        </tbody>
+    </table>
+</div><!--Main Content-->
 
-      <tr>
-            <td>20</td>
-            <td>Nikon 234 <br>
-              <img src="http://placehold.it/62x62" alt="">
-            </td>
-            <td>Category</td>
-            <td>123</td>
-        </tr>
-      
-
-
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-                
-                 
-
-
-             </div>
-
-            </div>
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- /#page-wrapper -->
 
 
 
